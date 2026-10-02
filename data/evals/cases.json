@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {"id": "q01", "question": "What did I spend on suppliers in September?", "contains": "KES 113,000.00"},
+    {"id": "q02", "question": "How many supplier purchases were there in September?", "contains": "across 4 transactions"},
+    {"id": "q03", "question": "What were my utilities costs in September?", "contains": "KES 2,500.00"},
+    {"id": "q04", "question": "How much went to payroll in September?", "contains": "KES 15,000.00"},
+    {"id": "q05", "question": "What did I spend on transport in September?", "contains": "KES 2,200.00"},
+    {"id": "q06", "question": "How much did I earn in September?", "contains": "KES 48,000.00"},
+    {"id": "q07", "question": "What were all September expenses?", "contains": "KES 137,835.00"},
+    {"id": "q08", "question": "How much were transaction fees in September?", "contains": "KES 35.00"},
+    {"id": "q09", "question": "Which anomalies were flagged?", "contains": "3 flagged anomalies"},
+    {"id": "q10", "question": "Was there a failed reversal?", "contains": "failed reversal"}
+  ],
+  "anomalies": [
+    {"id": "a01", "expected": "duplicate_transaction", "transactions": [
+      {"timestamp": "2025-09-18T14:10:00+03:00", "details": "POS equipment service", "amount": "-1800", "reference": "P1", "status": "completed", "transaction_type": "service", "category": "other"},
+      {"timestamp": "2025-09-18T14:20:00+03:00", "details": "POS equipment service", "amount": "-1800", "reference": "P2", "status": "completed", "transaction_type": "service", "category": "other"}
+    ]},
+    {"id": "a02", "expected": null, "transactions": [
+      {"timestamp": "2025-09-18T14:10:00+03:00", "details": "POS equipment service", "amount": "-1800", "reference": "P1", "status": "completed", "transaction_type": "service", "category": "other"},
+      {"timestamp": "2025-09-18T15:10:00+03:00", "details": "Fuel delivery", "amount": "-1800", "reference": "P2", "status": "completed", "transaction_type": "service", "category": "other"}
+    ]},
+    {"id": "a03", "expected": null, "transactions": [
+      {"timestamp": "2025-09-18T14:10:00+03:00", "details": "POS equipment service", "amount": "-1800", "reference": "P1", "status": "completed", "transaction_type": "service", "category": "other"},
+      {"timestamp": "2025-09-18T15:10:00+03:00", "details": "POS equipment service", "amount": "-1800", "reference": "P2", "status": "completed", "transaction_type": "service", "category": "other"}
+    ]},
+    {"id": "a04", "expected": "failed_reversal", "transactions": [
+      {"timestamp": "2025-09-21T12:00:00+03:00", "details": "Failed reversal - till transfer", "amount": "-1500", "reference": "R1", "status": "failed", "transaction_type": "reversal", "category": "other"}
+    ]},
+    {"id": "a05", "expected": null, "transactions": [
+      {"timestamp": "2025-09-21T12:00:00+03:00", "details": "Successful reversal - till transfer", "amount": "1500", "reference": "R1", "status": "completed", "transaction_type": "reversal", "category": "other"}
+    ]},
+    {"id": "a06", "expected": "unusual_spike", "transactions": [
+      {"timestamp": "2025-09-01T08:00:00+03:00", "details": "Supplier A", "amount": "-100", "reference": "S1", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-02T08:00:00+03:00", "details": "Supplier B", "amount": "-120", "reference": "S2", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-03T08:00:00+03:00", "details": "Supplier C", "amount": "-130", "reference": "S3", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-04T08:00:00+03:00", "details": "Bulk supplier", "amount": "-900", "reference": "S4", "status": "completed", "transaction_type": "purchase", "category": "suppliers"}
+    ]},
+    {"id": "a07", "expected": null, "transactions": [
+      {"timestamp": "2025-09-01T08:00:00+03:00", "details": "Supplier A", "amount": "-100", "reference": "S1", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-02T08:00:00+03:00", "details": "Supplier B", "amount": "-120", "reference": "S2", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-03T08:00:00+03:00", "details": "Supplier C", "amount": "-130", "reference": "S3", "status": "completed", "transaction_type": "purchase", "category": "suppliers"}
+    ]},
+    {"id": "a08", "expected": null, "transactions": [
+      {"timestamp": "2025-09-01T08:00:00+03:00", "details": "Fuel A", "amount": "-100", "reference": "T1", "status": "completed", "transaction_type": "transport", "category": "transport"},
+      {"timestamp": "2025-09-02T08:00:00+03:00", "details": "Fuel B", "amount": "-120", "reference": "T2", "status": "completed", "transaction_type": "transport", "category": "transport"},
+      {"timestamp": "2025-09-03T08:00:00+03:00", "details": "Fuel C", "amount": "-130", "reference": "T3", "status": "completed", "transaction_type": "transport", "category": "transport"},
+      {"timestamp": "2025-09-04T08:00:00+03:00", "details": "Fuel D", "amount": "-200", "reference": "T4", "status": "completed", "transaction_type": "transport", "category": "transport"}
+    ]},
+    {"id": "a09", "expected": null, "transactions": [
+      {"timestamp": "2025-09-01T08:00:00+03:00", "details": "Supplier A", "amount": "-100", "reference": "S1", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-02T08:00:00+03:00", "details": "Supplier B", "amount": "-120", "reference": "S2", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-03T08:00:00+03:00", "details": "Supplier C", "amount": "-130", "reference": "S3", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-04T08:00:00+03:00", "details": "Bulk supplier", "amount": "-300", "reference": "S4", "status": "completed", "transaction_type": "purchase", "category": "suppliers"}
+    ]},
+    {"id": "a10", "expected": "duplicate_transaction", "transactions": [
+      {"timestamp": "2025-09-18T10:00:00+03:00", "details": "Market wholesaler", "amount": "-6000", "reference": "SAME", "status": "completed", "transaction_type": "purchase", "category": "suppliers"},
+      {"timestamp": "2025-09-18T15:00:00+03:00", "details": "Another merchant", "amount": "-6000", "reference": "SAME", "status": "completed", "transaction_type": "purchase", "category": "suppliers"}
+    ]}
+  ]
+}
