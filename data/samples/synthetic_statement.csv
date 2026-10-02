@@ -1,0 +1,13 @@
+timestamp,details,amount,reference,status,transaction_type
+2025-09-01T08:15:00+03:00,Customer payment - Green Basket,48000.00,TX-SALE-001,completed,receipt
+2025-09-03T10:20:00+03:00,Wholesale supplier - dry goods,-12500.00,TX-SUP-001,completed,purchase
+2025-09-04T11:10:00+03:00,Electricity bill,-2500.00,TX-UTIL-001,completed,payment
+2025-09-08T09:30:00+03:00,Wholesale supplier - packaging,-18000.00,TX-SUP-002,completed,purchase
+2025-09-12T15:20:00+03:00,Wholesale supplier - produce,-12500.00,TX-SUP-003,completed,purchase
+2025-09-16T08:00:00+03:00,Wholesale supplier - bulk stock,-70000.00,TX-SUP-004,completed,purchase
+2025-09-18T14:10:00+03:00,POS equipment service,-1800.00,TX-POS-001,completed,service
+2025-09-18T14:20:00+03:00,POS equipment service,-1800.00,TX-POS-002,completed,service
+2025-09-21T12:00:00+03:00,Failed reversal - till transfer,-1500.00,TX-REV-001,failed,reversal
+2025-09-24T09:00:00+03:00,Staff salary,-15000.00,TX-PAY-001,completed,payroll
+2025-09-26T07:40:00+03:00,Fuel and delivery,-2200.00,TX-TRN-001,completed,transport
+2025-09-28T10:10:00+03:00,M-Pesa transaction fee,-35.00,TX-FEE-001,completed,fee
