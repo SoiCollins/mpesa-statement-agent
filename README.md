@@ -94,3 +94,7 @@ Pytest covers parsing, anomaly behavior, and the HTTP flow. The small determinis
 - `GET /health` — basic process health check.
 
 The service is intentionally unauthenticated and uses process-local storage. Keep it on localhost until you add authentication and tenant isolation.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
