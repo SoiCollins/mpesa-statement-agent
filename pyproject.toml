@@ -7,6 +7,7 @@ name = "mpesa-statement-agent"
 version = "0.1.0"
 description = "A tested FastAPI and LangGraph agent for synthetic Kenyan mobile-money statements."
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115,<1.0",
