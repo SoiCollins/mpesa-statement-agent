@@ -8,7 +8,6 @@ from mpesa_agent.graph import build_graph
 from mpesa_agent.llm import FakeLLMClient
 from mpesa_agent.models import Transaction
 
-
 ROOT = Path(__file__).resolve().parents[1]
 CASES_PATH = ROOT / "data" / "evals" / "cases.json"
 SAMPLE_PATH = ROOT / "data" / "samples" / "synthetic_statement.csv"
@@ -34,7 +33,10 @@ def run() -> tuple[int, int]:
             expected is not None and expected in found_types
         )
         anomaly_passes += passed
-        print(f"{'PASS' if passed else 'FAIL'} {case['id']}: expected {expected}, found {found_types}")
+        print(
+            f"{'PASS' if passed else 'FAIL'} {case['id']}: "
+            f"expected {expected}, found {found_types}"
+        )
 
     print(
         f"\nQuestion cases: {question_passes}/{len(cases['questions'])}; "

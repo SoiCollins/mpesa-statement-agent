@@ -24,13 +24,17 @@ def build_graph(answer_client: AnswerClient | None = None):
 
     def parse_node(state: AgentState) -> dict[str, object]:
         transactions = parse_statement_csv(state["raw_csv"])
-        return {"transactions": [transaction.model_dump(mode="json") for transaction in transactions]}
+        return {
+            "transactions": [transaction.model_dump(mode="json") for transaction in transactions]
+        }
 
     def categorize_node(state: AgentState) -> dict[str, object]:
         transactions = [
             categorize(Transaction.model_validate(item)) for item in state["transactions"]
         ]
-        return {"transactions": [transaction.model_dump(mode="json") for transaction in transactions]}
+        return {
+            "transactions": [transaction.model_dump(mode="json") for transaction in transactions]
+        }
 
     def detect_anomalies_node(state: AgentState) -> dict[str, object]:
         transactions = [Transaction.model_validate(item) for item in state["transactions"]]

@@ -8,7 +8,6 @@ from mpesa_agent.llm import FakeLLMClient
 from mpesa_agent.main import create_app
 from mpesa_agent.repository import StatementRepository
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLE = ROOT / "data" / "samples" / "synthetic_statement.csv"
 

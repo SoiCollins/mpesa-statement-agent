@@ -8,7 +8,6 @@ from statistics import median
 
 from mpesa_agent.models import Anomaly, Transaction
 
-
 REVERSAL_TERMS = ("reversal", "reverse")
 FAILURE_TERMS = ("fail", "reject", "declin", "unsuccess")
 
@@ -40,7 +39,9 @@ def detect_anomalies(transactions: list[Transaction]) -> list[Anomaly]:
         for earlier_index, earlier in enumerate(transactions[:index]):
             if earlier.amount >= 0 or abs(earlier.amount) != abs(transaction.amount):
                 continue
-            same_reference = bool(transaction.reference) and transaction.reference == earlier.reference
+            same_reference = (
+                bool(transaction.reference) and transaction.reference == earlier.reference
+            )
             same_charge = (
                 _normalized_details(transaction.details) == _normalized_details(earlier.details)
                 and abs(transaction.timestamp - earlier.timestamp) <= timedelta(minutes=30)
@@ -65,7 +66,9 @@ def detect_anomalies(transactions: list[Transaction]) -> list[Anomaly]:
         if len(expenses) < 4:
             continue
         for index, amount in expenses:
-            peer_amounts = [peer_amount for peer_index, peer_amount in expenses if peer_index != index]
+            peer_amounts = [
+                peer_amount for peer_index, peer_amount in expenses if peer_index != index
+            ]
             baseline = Decimal(str(median(peer_amounts)))
             if baseline > 0 and amount > baseline * Decimal("3"):
                 transaction = transactions[index]

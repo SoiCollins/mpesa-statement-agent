@@ -80,7 +80,9 @@ class FakeLLMClient:
             total = sum((abs(transaction.amount) for transaction in filtered), Decimal("0"))
 
         if month is not None:
-            filtered = [transaction for transaction in filtered if transaction.timestamp.month == month]
+            filtered = [
+                transaction for transaction in filtered if transaction.timestamp.month == month
+            ]
             total = sum(
                 (
                     transaction.amount if metric == "income" else abs(transaction.amount)
