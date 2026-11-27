@@ -7,7 +7,6 @@ from mpesa_agent.categorization import categorize
 from mpesa_agent.models import Transaction
 from mpesa_agent.parser import parse_statement_csv
 
-
 ROOT = Path(__file__).resolve().parents[1]
 
 

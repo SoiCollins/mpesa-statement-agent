@@ -1,6 +1,5 @@
 from mpesa_agent.models import Transaction
 
-
 RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("suppliers", ("supplier", "wholesale", "stock purchase", "inventory", "bulk goods")),
     ("utilities", ("electricity", "water bill", "internet", "utility", "kplc")),

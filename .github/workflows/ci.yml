@@ -15,5 +15,9 @@ jobs:
           cache: pip
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e ".[test]"
+      - name: Lint with ruff
+        run: |
+          python -m pip install "ruff==0.17.6"
+          ruff check .
       - run: pytest
       - run: python evals/run_evals.py

@@ -17,7 +17,6 @@ from mpesa_agent.models import (
 from mpesa_agent.parser import StatementParseError
 from mpesa_agent.repository import StatementRepository
 
-
 MAX_UPLOAD_BYTES = 5 * 1024 * 1024
 
 
